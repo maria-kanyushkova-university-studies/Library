@@ -1,5 +1,5 @@
-# Python-Course-Work
-Курсовой проект по Python (но должен быть Java)
+# Library
+Курсовой проект по Python
 
 
 ## Важные команды
