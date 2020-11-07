@@ -47,7 +47,7 @@ class User(models.Model):
     updated_at = models.DateTimeField(auto_now=True)
 
 
-class BookPurchase(models.Model):
+class Purchase(models.Model):
     title = models.CharField(max_length=255)
     author = models.CharField(max_length=255)
     link = models.TextField()
@@ -78,8 +78,8 @@ class Book(models.Model):
 
 
 class Wishlist(models.Model):
-    book_id = models.ForeignKey(Book, on_delete=models.CASCADE)
-    user_id = models.ForeignKey(User, on_delete=models.CASCADE)
+    book = models.ForeignKey(Book, on_delete=models.CASCADE)
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
     is_actual = models.BooleanField()
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
@@ -87,15 +87,15 @@ class Wishlist(models.Model):
 
 class Code(models.Model):
     code = models.CharField(max_length=255)
-    book_id = models.ForeignKey(Book, on_delete=models.CASCADE)
+    book = models.ForeignKey(Book, on_delete=models.CASCADE)
     is_deleted = models.BooleanField()
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
 
 
 class ReadingBook(models.Model):
-    code_id = models.ForeignKey(Code, on_delete=models.CASCADE)
-    user_id = models.ForeignKey(User, on_delete=models.CASCADE)
+    code = models.ForeignKey(Code, on_delete=models.CASCADE)
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
     is_actual = models.BooleanField()
     started_day = models.DateTimeField(auto_now_add=True)
     finished_day = models.DateTimeField(auto_now=True)
@@ -103,8 +103,8 @@ class ReadingBook(models.Model):
 
 class Comment(models.Model):
     description = models.TextField()
-    book_id = models.ForeignKey(Book, on_delete=models.CASCADE)
-    user_id = models.ForeignKey(User, on_delete=models.CASCADE)
+    book = models.ForeignKey(Book, on_delete=models.CASCADE)
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
     rate = models.IntegerField()
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
