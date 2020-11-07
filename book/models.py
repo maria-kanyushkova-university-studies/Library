@@ -1,4 +1,5 @@
 from django.db import models
+from django.contrib.auth.models import User
 
 
 class Asset(models.Model):
@@ -32,19 +33,6 @@ class Category(models.Model):
 
 class Series(models.Model):
     title = models.CharField(max_length=255)
-
-
-class User(models.Model):
-    surname = models.CharField(max_length=255)
-    name = models.CharField(max_length=255)
-    patronymic = models.CharField(max_length=255)
-    filename = models.UUIDField()
-    email = models.CharField(max_length=255)
-    birthday = models.DateField()
-    access_token = models.TextField()
-    refresh_token = models.TextField()
-    created_at = models.DateTimeField(auto_now_add=True)
-    updated_at = models.DateTimeField(auto_now=True)
 
 
 class Purchase(models.Model):
