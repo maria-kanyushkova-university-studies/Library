@@ -1,5 +1,5 @@
-from django.db import models
 from django.contrib.auth.models import User
+from django.db import models
 
 
 class Asset(models.Model):
@@ -51,9 +51,6 @@ class Book(models.Model):
     description = models.TextField()
     rate = models.FloatField()
     isbn = models.CharField(max_length=20)
-    year = models.IntegerField()
-    bbk = models.CharField(max_length=50)
-    udc = models.CharField(max_length=50)
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
 
@@ -84,7 +81,7 @@ class Code(models.Model):
 class ReadingBook(models.Model):
     code = models.ForeignKey(Code, on_delete=models.CASCADE)
     user = models.ForeignKey(User, on_delete=models.CASCADE)
-    is_actual = models.BooleanField()
+    is_actual = models.BooleanField(default='true')
     started_day = models.DateTimeField(auto_now_add=True)
     finished_day = models.DateTimeField(auto_now=True)
 
