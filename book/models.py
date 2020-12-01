@@ -14,12 +14,12 @@ class Author(models.Model):
     surname = models.CharField(max_length=255)
     name = models.CharField(max_length=255)
     patronymic = models.CharField(max_length=255)
-    filename = models.UUIDField()
+    # filename = models.UUIDField()
 
 
 class Publisher(models.Model):
     title = models.CharField(max_length=255)
-    filename = models.UUIDField()
+    # filename = models.UUIDField()
 
 
 class Label(models.Model):
@@ -58,8 +58,9 @@ class Book(models.Model):
     labels = models.ManyToManyField(Label)
     categories = models.ManyToManyField(Category)
     series = models.ManyToManyField(Series)
-    assets = models.ManyToManyField(Asset, related_name="assets")
-    ebooks = models.ManyToManyField(Asset, related_name="ebook")
+    publishers = models.ManyToManyField(Publisher)
+    # assets = models.ManyToManyField(Asset, related_name="assets")
+    # ebooks = models.ManyToManyField(Asset, related_name="ebook")
 
 
 class Wishlist(models.Model):
