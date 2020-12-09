@@ -1,5 +1,6 @@
 from django.contrib.auth.models import User
 from django.db import models
+from django_elasticsearch.models import EsIndexable
 
 
 class Asset(models.Model):
@@ -10,19 +11,19 @@ class Asset(models.Model):
     updated_at = models.DateTimeField(auto_now=True)
 
 
-class Author(models.Model):
+class Author(EsIndexable, models.Model):
     surname = models.CharField(max_length=255)
     name = models.CharField(max_length=255)
     patronymic = models.CharField(max_length=255)
     # filename = models.UUIDField()
 
 
-class Publisher(models.Model):
+class Publisher(EsIndexable, models.Model):
     title = models.CharField(max_length=255)
     # filename = models.UUIDField()
 
 
-class Label(models.Model):
+class Label(EsIndexable, models.Model):
     title = models.CharField(max_length=255)
 
 
@@ -46,7 +47,7 @@ class Purchase(models.Model):
     updated_at = models.DateTimeField(auto_now=True)
 
 
-class Book(models.Model):
+class Book(EsIndexable, models.Model):
     title = models.CharField(max_length=255)
     description = models.TextField()
     rate = models.FloatField()
@@ -63,7 +64,7 @@ class Book(models.Model):
     # ebooks = models.ManyToManyField(Asset, related_name="ebook")
 
 
-class Wishlist(models.Model):
+class Wishlist(EsIndexable, models.Model):
     book = models.ForeignKey(Book, on_delete=models.CASCADE)
     user = models.ForeignKey(User, on_delete=models.CASCADE)
     is_actual = models.BooleanField()
@@ -79,7 +80,7 @@ class Code(models.Model):
     updated_at = models.DateTimeField(auto_now=True)
 
 
-class ReadingBook(models.Model):
+class ReadingBook(EsIndexable, models.Model):
     code = models.ForeignKey(Code, on_delete=models.CASCADE)
     user = models.ForeignKey(User, on_delete=models.CASCADE)
     is_actual = models.BooleanField(default='true')

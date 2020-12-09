@@ -42,7 +42,6 @@ INSTALLED_APPS = [
     'book.apps.BookConfig',
     'rest_framework',
 ]
-
 REST_FRAMEWORK = {
     'DEFAULT_RENDERER_CLASSES': (
         'rest_framework.renderers.JSONRenderer',
@@ -128,6 +127,7 @@ USE_L10N = True
 
 USE_TZ = True
 
+ELASTICSEARCH_DEFAULT_INDEX = 'Library'
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/dev/howto/static-files/
