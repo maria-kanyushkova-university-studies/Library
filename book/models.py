@@ -55,11 +55,11 @@ class Book(EsIndexable, models.Model):
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
 
-    authors = models.ManyToManyField(Author)
-    labels = models.ManyToManyField(Label)
-    categories = models.ManyToManyField(Category)
-    series = models.ManyToManyField(Series)
-    publishers = models.ManyToManyField(Publisher)
+    authors = models.ManyToManyField(Author, blank=True)
+    labels = models.ManyToManyField(Label, blank=True)
+    categories = models.ManyToManyField(Category, blank=True)
+    series = models.ManyToManyField(Series, blank=True)
+    publishers = models.ManyToManyField(Publisher, blank=True)
     # assets = models.ManyToManyField(Asset, related_name="assets")
     # ebooks = models.ManyToManyField(Asset, related_name="ebook")
 

@@ -129,6 +129,8 @@ USE_TZ = True
 
 ELASTICSEARCH_DEFAULT_INDEX = 'Library'
 
+ELASTICSEARCH_AUTO_INDEX = True
+
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/dev/howto/static-files/
 
