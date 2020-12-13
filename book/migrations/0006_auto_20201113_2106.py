@@ -15,7 +15,7 @@ def addBooks(apps, schema_editor):
 def removeBooks(apps, schema_editor):
     Book = apps.get_model("book", "book")
 
-    Book.objects.get(isbn="1").delete()
+    Book.objects.get().delete()
 
 
 class Migration(migrations.Migration):
