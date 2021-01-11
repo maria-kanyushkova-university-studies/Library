@@ -12,9 +12,10 @@ class Asset(models.Model):
 
 
 class Author(EsIndexable, models.Model):
-    surname = models.CharField(max_length=255)
-    name = models.CharField(max_length=255)
-    patronymic = models.CharField(max_length=255)
+    title = models.CharField(max_length=255)
+    # surname = models.CharField(max_length=255)
+    # name = models.CharField(max_length=255)
+    # patronymic = models.CharField(max_length=255)
     # filename = models.UUIDField()
 
 
